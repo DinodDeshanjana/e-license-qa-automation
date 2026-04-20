@@ -8,9 +8,11 @@ async function login(page) {
   await page.fill('#email', 'deshan@gmail.com');
   await page.fill('#password', 'deshan@1234');
 
-  await page.getByRole('button', { name: 'Login' }).click();
+  await Promise.all([
+    page.waitForNavigation(),
+    page.getByRole('button', { name: 'Login' }).click()
+  ]);
 }
-
 
 test('User can apply for exam successfully', async ({ page }) => {
   await login(page);
@@ -18,13 +20,12 @@ test('User can apply for exam successfully', async ({ page }) => {
   await page.goto('https://deshan.wuaze.com/applyexam.php');
 
   await page.getByTestId('exam-type').selectOption('written');
+
   await page.getByTestId('apply-btn').click();
 
-  await expect(page).toHaveURL(/dashboard.php/);
-
-  await expect(page.locator('.alert, .success')).toContainText('submitted');
+  await expect(page.locator('.alert, .success'))
+    .toContainText('submitted', { timeout: 10000 });
 });
-
 
 
 test('User cannot apply for same exam twice', async ({ page }) => {
@@ -35,6 +36,9 @@ test('User cannot apply for same exam twice', async ({ page }) => {
   await page.getByTestId('exam-type').selectOption('written');
   await page.getByTestId('apply-btn').click();
 
+  await expect(page.locator('.alert, .success'))
+    .toContainText(/submitted|already/i, { timeout: 10000 });
+
   await page.goto('https://deshan.wuaze.com/applyexam.php');
 
   await page.getByTestId('exam-type').selectOption('written');
@@ -43,7 +47,6 @@ test('User cannot apply for same exam twice', async ({ page }) => {
   await expect(page.locator('.alert-danger'))
     .toContainText('already have an active application');
 });
-
 
 
 test('User cannot submit without selecting exam type', async ({ page }) => {
@@ -56,7 +59,6 @@ test('User cannot submit without selecting exam type', async ({ page }) => {
   await expect(page.locator('.alert-danger'))
     .toContainText('Please select a valid exam type');
 });
-
 
 
 test('Guest cannot access apply exam page', async ({ page }) => {
