@@ -1,170 +1,105 @@
-# 🚗 E-License QA Automation (Playwright)
+# 🚀 E-License QA Automation Testing Project
 
-A complete **QA Automation Testing Project** for an E-License Management System.
-This project demonstrates **end-to-end testing, and admin workflows** using Playwright.
+A complete **QA Automation Testing framework** built using **Playwright** to validate core workflows of an E-License Management System.
 
 ---
 
 ## 📌 Project Overview
 
-This system simulates a real-world **E-License Management Platform**, where:
+This project focuses on automating key workflows of an E-License system, covering both **user interactions** and **admin operations**.
 
-* Users can register and apply for exams
-* Admins can approve applications
-* Admins can add exam results
-* Admins can issue and manage licenses
-
-👉 This QA project automates the **entire workflow**
+It includes **end-to-end automation of the core license application workflow**, from user application submission to final license issuance.
 
 ---
 
-## 🧪 Testing Scope
+## 🧪 Test Coverage & Metrics
 
-### ✅ Automated Test Coverage
+The automation suite includes **9 test cases** across 3 main modules:
 
-* 🔐 Authentication (Login / Signup)
-* 🧾 Exam Application Process
-* 🛠️ Admin Approval Workflow
-* 📊 Exam Result Management
-* 🎫 License Issuing & Status Updates
+### 🔐 Authentication Module (4 Test Cases)
+
+* User registration with dynamic email generation
+* User login validation (redirect to dashboard)
+* Admin login validation (redirect to admin panel)
+* Invalid login handling and error validation
+
+### 🧾 User Application Module (4 Test Cases)
+
+* Successful exam application submission
+* Prevention of duplicate applications
+* Form validation for empty submissions
+* Route protection for unauthenticated users
+
+### 🛠️ Admin End-to-End Workflow (1 Test Case)
+
+Covers the complete lifecycle:
+
+* Approve exam application
+* Assign exam date
+* Update result (Pass/Fail)
+* Issue license
+* Update license status
+
+📌 Includes **end-to-end testing of the core workflow** from application to license issuance.
 
 ---
 
-## 🔁 End-to-End Flow Tested
+## ⚙️ Execution & Environment
 
-1. User registers & logs in
-2. User applies for exam
-3. Admin approves application
-4. Admin adds exam result (Pass/Fail)
-5. Admin issues license
-6. Admin updates license status
+* 🌐 Target Environment
+* 🧹 Clean browser state before each test (cookies cleared)
+* ⚡ Parallel test execution (Chromium)
+* 📄 HTML Reporter enabled for test results
 
 ---
 
 ## 🛠️ Tech Stack
 
-* 🎭 Playwright (Automation)
-* 🌐 PHP (Backend)
-* 🗄️ MySQL (Database)
-* 🎨 Bootstrap (Frontend)
-* ⚙️ GitHub Actions (CI/CD)
+* **Language:** JavaScript
+* **Framework:** Playwright (@playwright/test)
+* **Runtime:** Node.js
 
 ---
 
-## 📁 Project Structure
+## 🎯 Purpose
 
-```
-e-license-qa-automation/
-│
-├── tests/
-│   ├── authentication/
-│   │   ├── login.spec.js
-│   │   ├── signup.spec.js
-│   │
-│   ├── user/
-│   │   ├── applyExam.spec.js
-│   │
-│   ├── admin/
-│   │   ├── admin-flow.spec.js
-│
-│
-├── playwright.config.js
-├── package.json
-└── README.md
-```
+This project eliminates repetitive manual testing by automating functional verification of key workflows.
+
+It ensures that new changes do not break existing functionality and helps maintain system reliability.
 
 ---
 
-## ⚙️ Setup Instructions
+## 💡 Key Learnings
 
-### 1️⃣ Clone Repository
-
-```
-git clone https://github.com/your-username/e-license-qa-automation.git
-cd e-license-qa-automation
-```
-
----
-
-### 2️⃣ Install Dependencies
-
-```
-npm install
-```
+* Building a QA automation framework from scratch
+* Writing maintainable and scalable test cases
+* Designing end-to-end test scenarios
+* Testing role-based systems (User & Admin)
+* Handling validation, authentication, and workflows
 
 ---
 
-### 3️⃣ Install Playwright Browsers
+## 📈 Future Improvements
 
-```
-npx playwright install
-```
-
----
-
-### 4️⃣ Run Tests
-
-```
-npx playwright test
-```
+* Add user profile management test coverage
+* Add admin user management scenarios
+* Expand negative and edge case testing
+* Integrate CI/CD pipeline for automated test execution
 
 ---
 
+## 🎯 Career Objective
 
-## 📊 Test Reports
-
-After running tests:
-
-```
-npx playwright show-report
-```
+I am actively seeking **QA Engineer Internship opportunities** to apply and expand my automation testing skills.
 
 ---
 
-## 🌐 Test Environment
+## 🔗 Repository
 
-```
-https://deshan.wuaze.com
-```
+GitHub: [https://github.com/DinodDeshanjana/e-license-qa-automation.git](https://github.com/DinodDeshanjana/e-license-qa-automation.git)
 
 ---
 
-## 🧠 QA Concepts Covered
+## 🏷️ Tags
 
-* Functional Testing
-* End-to-End Testing (E2E)
-* Role-Based Access Control (RBAC)
-* Negative Testing
-* Data Validation
-* Database Integrity Testing
-
----
-
-## 📌 Future Improvements
-
-* 🔥 Page Object Model (POM)
-* 🔥 Allure Reporting
-* 🔥 Parallel Test Execution
-* 🔥 Test Data Management
-
----
-
-## 👨‍💻 Author
-
-**Dinod Deshanjana**
-BSc. in Management Information Technology (MIT)
-
----
-
-## ⭐ Support
-
-If you like this project:
-
-👉 Give it a ⭐ on GitHub
-👉 Share it on LinkedIn
-
----
-
-## 📢 Note
-
-This project is built for **learning and portfolio purposes** to demonstrate real-world QA automation skills.
+QA • Automation Testing • Playwright • JavaScript • Node.js • Software Testing • End-to-End Testing
